@@ -1,0 +1,35 @@
+# common generated files
+.deps/
+.libs/
+Makefile
+Makefile.in
+/aclocal.m4
+/autom4te.cache
+/compile
+/config.guess
+/config.h
+/config.h.in
+/config.log
+/config.status
+/config.sub
+/configure
+/depcomp
+/install-sh
+/m4
+/missing
+/stamp-h1
+/stamp-h
+/stamp-h.in
+/libtool
+/ltmain.sh
+*.tar.*
+*~
+
+*.[oa]
+/tmp
+
+# generated files for this project
+src/hello
+
+# Directory generated when I decompress the distribution tarball
+hello-*/

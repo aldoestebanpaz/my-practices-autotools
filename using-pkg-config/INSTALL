@@ -1,0 +1,14 @@
+How to build and run
+==
+
+1. Execute sh autogen.sh
+2. Execute make
+3. Run with any of the following commands:
+./src/pkgconfig-client-example
+LANGUAGE=es ./src/pkgconfig-client-example
+LANGUAGE=en ./src/pkgconfig-client-example
+
+How to generate a tarball for distribution
+==
+
+1. Execute make dist

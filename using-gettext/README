@@ -1,0 +1,50 @@
+gettext-client-example
+
+An example project using gettext for i18n and l10n.
+
+To add gettext support to the project, you have to:
+
+1. Add the AM_GNU_GETTEXT_VERSION and AM_GNU_GETTEXT macro in configure.ac.
+  AM_GNU_GETTEXT_VERSION adds to the package’s pre-build script an invocation of
+  ‘autopoint’. For everyone who checks out the source, this autopoint invocation
+  will copy into the right place the gettext infrastructure files that have been
+  omitted from the repository.
+2. Add the LOCALEDIR definition for c-preprocessor in Makefile.am
+3. Run 'gettextize' or 'gettextize --no-changelog' for copying into the package
+  some files that are needed in every package internationalized through GNU gettext.
+4. Create po/Makevars from the template po/Makevars.template.
+5. List each source file with translatable strings in po/POTFILES.in. This file
+  tells which files, among all program sources, have marked strings needing translation.
+6. Copy the header file gettext.h from the /usr/share/gettext
+  directory into your package. It is a convenience header file for conditional
+  use of <libintl.h>, depending on the ENABLE_NLS macro. If ENABLE_NLS is set,
+  it includes <libintl.h>; otherwise it defines no-op substitutes for the
+  libintl.h functions. In other words it is a wrapper around <libintl.h> that
+  implements the configure --disable-nls option that can be useful when small
+  binaries are more important than features.
+  In many GNU packages, there is a directory lib/ containing helper functions;
+  gettext.h fits there. In other packages, it can go into the src directory.
+7. Run `sh autogen.sh` in order to invoke autoreconf. This will run 'aclocal' to
+  regenerate the aclocal.m4 file and run 'autoconf' to regenerate the configure
+  file.
+8. Run `make -C po/ update-po` or `make -C po/` or simply `make` to generate the
+  .pot file.
+9. Update the .pot file as needed.
+9. Run for example `cd po/ && msginit --locale es.UTF-8 && msginit --locale pt.UTF-8`
+  and put the email address of the maintainer.
+10. If needed, change the charset from ASCII to UTF-8 in .po files.
+11. Create the po/LINGUAS file and list the available translations.
+  This file is for limiting the .po files that should be processed.
+
+NOTE: Run `make -C po/ update-po` whenever you need to update the .pot and .po files.
+NOTE: `locale -a’` can be used to output a list of all installed locales in the system.
+
+Please visit the translation team for 'es' at:
+  https://translationproject.org/team/es.html
+and consider joining the translation team's mailing list
+  <es@tp.org.es>
+Please visit other useful informational pages about the tp project:
+  https://translationproject.org/team/index.html
+  https://translationproject.org/html/translators.html
+  https://translationproject.org/html/welcome.html
+

@@ -1,0 +1,3 @@
+pkgconfig-client-example
+
+An example of using pkg-config with iso-codes and sqlite3 dependencies.
