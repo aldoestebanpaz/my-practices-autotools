@@ -1,0 +1,11 @@
+How to build and run
+==
+
+1. Execute sh autogen.sh
+2. Execute make
+3. Run the program ./src/glib-client-example
+
+How to generate a tarball for distribution
+==
+
+1. Execute make dist
